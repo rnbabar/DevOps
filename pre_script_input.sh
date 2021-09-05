@@ -1,7 +1,8 @@
 #! bin/bash
 # The script to read values from command line
-echo 'First Argument'   $0
-echo 'Second Argument'  $1
-echo 'Third Argument'   $2
+echo 'Name of the script'   $0
+echo 'First Argument'  $1
+echo 'Second Argument'  $2
+echo 'Third Argument'   $3
 echo 'Total Nos of  Argument'   $#
 echo 'All Argument'   $*
