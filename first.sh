@@ -1,3 +1,3 @@
 #! bin/bash
-read "Enter your Name" a
+read 'Enter your Name' a
 echo $a
