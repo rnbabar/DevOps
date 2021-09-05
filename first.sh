@@ -1,3 +1,4 @@
 #! bin/bash
-read 'Enter your Name' a
-echo $a
+echo  Enter your Name
+read a
+echo hello  $a
