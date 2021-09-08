@@ -10,7 +10,6 @@ if [ -z "${Inst_Name}" ]; then
 
 fi
 #Check weather instance exist or not
-#aws ec2 describe-instances --filters "Name=tag:Name,Values=$INSTANCE_NAME" | jq .Reservations[].Instances[].State.Name | grep running &>/dev/null 
 aws ec2 describe-instances --filters "Name=tag:Name,Values=$Inst_Name" | jq .Reservations[].Instances[].State.Name | grep running &>/dev/null 
 if [ $? -eq 0 ]; then
     echo -e "Instance $Inst_Nmae is already running "
@@ -22,11 +21,7 @@ if [ $? -eq 0 ]; then
     echo -e "Instance $Inst_Nmae is already running "
     exit 0
 fi
- # 
-#aws ec2 run-instances --Launch-Template launchTemplateId=$TMPLID, version=$TMPLVER 
-# To check the existing running instances
-#aws ec2 describe-instances --filters "Name=tag:Name,values=$Inst_Name" | jq .Reservation[].Instances[].state.Name | grep running &>/dev/null
-#if [ $? -eq 0 ]; then
-#echo "Instance $Inst_Name is already running "
-#exit 0
-#fi
+#  Create a instance from Template ID 
+aws ec2 run-instances --Launch-Template LaunchTemplateId=$TMPLID,version=$TMPLVER   
+
+
