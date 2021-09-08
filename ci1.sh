@@ -22,6 +22,6 @@ if [ $? -eq 0 ]; then
     exit 0
 fi
 #  Create a instance from Template ID 
-aws ec2 run-instances --Launch-Template LaunchTemplateId=$TMPLID,version=$TMPLVER   
+aws ec2 run-instances --launch-template LaunchTemplateId=$TMPLID,version=$TMPLVER   
 
 
