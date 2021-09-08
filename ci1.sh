@@ -21,7 +21,9 @@ if [ $? -eq 0 ]; then
     echo -e "Instance $Inst_Nmae is already running "
     exit 0
 fi
-#  Create a instance from Template ID 
-aws ec2 run-instances --launch-template LaunchTemplateId=$TMPLID,version=$TMPLVER   
+#  Create a instance from Template ID  
+#IP=$(aws ec2 run-instances --launch-template LaunchTemplateId=$LID,Version=$LVER --tag-specifications "ResourceType=spot-instances-request,Tags=[{Key=Name,Value=$INSTANCE_NAME}]" "ResourceType=instance,Tags=[{Key=Name,Value=$INSTANCE_NAME}]" | jq .Instances[].PrivateIpAddress | sed -e 's/"//g')
+
+aws ec2 run-instances --launch-template LaunchTemplateId=$TMPLID,Version=$TMPLVER   
 
 
