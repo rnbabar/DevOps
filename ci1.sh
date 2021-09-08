@@ -11,13 +11,13 @@ if [ -z "${Inst_Name}" ]; then
 fi
 #Check weather instance exist or not
 #aws ec2 describe-instances --filters "Name=tag:Name,Values=$INSTANCE_NAME" | jq .Reservations[].Instances[].State.Name | grep running &>/dev/null 
-aws ec2 describe-instances --filters "Name=tag:Name,value=$Inst_Name" | jq .Reservations[].Instances[].State.Name | grep running &>/dev/null 
+aws ec2 describe-instances --filters "Name=tag:Name,values=$Inst_Name" | jq .Reservations[].Instances[].State.Name | grep running &>/dev/null 
 if [$? -eq 0 ]; then
     echo -e "Instance $Inst_Nmae is already running "
     exit 0
 fi
 #Check weather instance Stopped or not 
-aws ec2 describe-instances --filters "Name=tag:Name,value=$Inst_Name" | jq .Reservations[].Instances[].State.Name | grep stopped &>/dev/null 
+aws ec2 describe-instances --filters "Name=tag:Name,values=$Inst_Name" | jq .Reservations[].Instances[].State.Name | grep stopped &>/dev/null 
 if [$? -eq 0 ]; then
     echo -e "Instance $Inst_Nmae is already running "
     exit 0
