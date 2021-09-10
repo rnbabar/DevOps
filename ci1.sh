@@ -24,7 +24,7 @@ fi
 #  Create a instance from Template ID  
 #IP=$(aws ec2 run-instances --launch-template LaunchTemplateId=$LID,Version=$LVER --tag-specifications "ResourceType=spot-instances-request,Tags=[{Key=Name,Value=$INSTANCE_NAME}]" "ResourceType=instance,Tags=[{Key=Name,Value=$INSTANCE_NAME}]" | jq .Instances[].PrivateIpAddress | sed -e 's/"//g')
 
-IP=$(aws ec2 run-instances --launch-template LaunchTemplateId=$TMPLID,Version=$TMPLVER  --tag-specifications "ResourceType=spot-instance-request,Tags="[{key=Name,Value=$Inst_Name}]" "ResourceType=instance,Tag=[{key=Nme,Value=$Inst_Name}]" | jq .Instances[].PrivateIpAddress | sed -e 's/"//g')                                                                      
-echo -e "The Pricvate Ip Address of Instance is $IP"
+MYIP=$(aws ec2 run-instances --launch-template LaunchTemplateId=$TMPLID,Version=$TMPLVER  --tag-specifications "ResourceType=spot-instance-request,Tags="[{key=Name,Value=$Inst_Name}]" "ResourceType=instance,Tag=[{key=Nme,Value=$Inst_Name}]" | jq .Instances[].PrivateIpAddress | sed -e 's/"//g')                                                                      
+echo -e "The Pricvate Ip Address of Instance is $MYIP"
 
 
