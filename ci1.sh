@@ -24,7 +24,7 @@ fi
 #  Create a instance from Template ID  
 IP=$(aws ec2 run-instances --launch-template LaunchTemplateId=$TMPLID,Version=$TMPLVER --tag-specifications "ResourceType=spot-instances-request,Tags=[{Key=Name,Value=$Inst_Name}]" "ResourceType=instance,Tags=[{Key=Name,Value=$Inst_Name}]" | jq .Instances[].PrivateIpAddress | sed -e 's/"//g')
 
-sed -e "s/INSTANCE_NAME/$Inst_Name" -e "s/INSTANCE_IP/$IP" record.json > /tmp/record.json
+sed -e "s/INSTANCE_NAME/$Inst_Name/" -e "s/INSTANCE_IP/$IP/" record.json > /tmp/record.json
 aws route53 change-resource-record-sets --hosted-zone-id Z06421191721I0AOBUGO2 --change-batch file:///tmp/record.json | jq
 
 
