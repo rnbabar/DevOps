@@ -20,8 +20,8 @@ function print()
 } 
 
 # declare a temporary log file
-LOG= /tmp/roboshop.log
-rm -f $LOG
+LOG=/tmp/roboshop.log
+
 
 # Installation of nodejs and its compiler 
 print "Installing Nodejs"
