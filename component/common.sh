@@ -55,3 +55,11 @@ systemD_setup()
     mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 
 }
+
+services_reload()
+{
+    print "Enabling and starting the service" 
+    systemctl daemon-reload && systemctl enable catalogue && systemctl start catalogue &>> $LOG
+    status_check $?
+
+}
