@@ -46,7 +46,8 @@ curl -o -s -L  /tmp/catalogue.zip "https://github.com/roboshop-devops-project/ca
 status_check $?
 # Unzip the Catalogue.zip 
 print "Extracting App Files"
-cd /home/roboshop && unzip -o /tmp/catalogue.zip &>>$LOG
+cd /home/roboshop 
+unzip -o /tmp/catalogue.zip &>>$LOG
 status_check $?
 # rename catalogue-main to caralogue directory
 mv catalogue-main catalogue
