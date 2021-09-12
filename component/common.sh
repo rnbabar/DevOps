@@ -1,11 +1,11 @@
 #! bin/bash
 
-Print() {
+print() {
   echo -e "\n\t\t\e[36m----------------- $1 ----------------------\e[0m\n" >>$LOG
   echo -n -e "$1 \t- "
 }
 
-Status_Check() {
+status_Check() {
   if [ $1 -eq 0 ]; then 
     echo -e "\e[32mSUCCESS\e[0m"
   else 
