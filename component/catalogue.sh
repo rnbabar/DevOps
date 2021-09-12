@@ -14,8 +14,7 @@ function status_check()
 # function to check the status of the command 
 function print()
 {
-    echo -e "\n \t \e[36m -------------------$1------------- \e[m0"
-    echo -e -n "$1 \t-"
+     echo -e -n "$1 \t-"
     
 } 
 
@@ -70,3 +69,4 @@ mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.servic
 # restarting and enabling the service
 print "Enabling and starting the service" 
 systemctl daemon-reload && systemctl enable catalogue && systemctl start catalogue &>> $LOG
+status_check $?
