@@ -31,7 +31,7 @@ status_check $?
 
 # Create a roboshop user
 id roboshop &>>$LOG
-if [$? -eq o]; then
+if [ $? -eq o ]; then
 echo "User already exist " &>>$LOG
 else
 useradd roboshop &>>$LOG
