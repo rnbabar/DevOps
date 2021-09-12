@@ -24,3 +24,18 @@ add_app_user()
     fi
     status_check $? 
 }
+
+download_data()
+{
+    print "Downloading App from Github server"
+    curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>$LOG
+    status_check $?
+    # Unzip the Catalogue.zip 
+    print "Extracting App Files"
+    cd /home/roboshop 
+    rm -rf catalogue
+    unzip -o /tmp/catalogue.zip &>>$LOG
+    status_check $?
+    # rename catalogue-main to caralogue directory
+    mv catalogue-main catalogue
+}

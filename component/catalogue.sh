@@ -23,18 +23,8 @@ add_app_user
 
 
 # Download the zip files of catalogue application from github repository to /tmp/catalogue.zip
-print "Downloading App from Github server"
-curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>$LOG
+download_data
 
-status_check $?
-# Unzip the Catalogue.zip 
-print "Extracting App Files"
-cd /home/roboshop 
-rm -rf catalogue
-unzip -o /tmp/catalogue.zip &>>$LOG
-status_check $?
-# rename catalogue-main to caralogue directory
-mv catalogue-main catalogue
 cd /home/roboshop/catalogue
 
 # Install the Pacakge
