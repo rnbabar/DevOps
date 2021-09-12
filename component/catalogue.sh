@@ -47,6 +47,7 @@ status_check $?
 # Unzip the Catalogue.zip 
 print "Extracting App Files"
 cd /home/roboshop 
+rm -rf catalogue
 unzip -o /tmp/catalogue.zip &>>$LOG
 status_check $?
 # rename catalogue-main to caralogue directory
@@ -60,7 +61,7 @@ status_check $?
 
 # Make changes in systemd.service
 print "change and move service file"
-sed -e "s/127.0.0.1/0.0.0.0/" /home/roboshop/catalogue/systemd.service &>>$LOG
+sed -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' /home/roboshop/catalogue/systemd.service &>>$LOG
 status_check $?
 # Move theb file
 mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
