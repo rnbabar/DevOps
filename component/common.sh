@@ -63,3 +63,10 @@ services_reload()
     status_check $?
 
 }
+
+install_nodejs()
+{
+    print "Installing Nodejs"
+    yum install nodejs make gcc-c++ -y &>>$LOG
+    status_check $?
+}
