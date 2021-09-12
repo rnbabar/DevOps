@@ -5,7 +5,7 @@ print() {
   echo -n -e "$1 \t- "
 }
 
-status_Check() {
+status_check() {
   if [ $1 -eq 0 ]; then 
     echo -e "\e[32mSUCCESS\e[0m"
   else 
