@@ -30,9 +30,15 @@ status_check $?
 
 
 # Create a roboshop user
-print "Adding Roboshopn user"
+id roboshop &>>$LOG
+if [$? -eq o]; then
+echo "User already exist " &>>$LOG
+else
 useradd roboshop &>>$LOG
 status_check $?
+fi 
+
+
 
 # Download the zip files of catalogue application from github repository to /tmp/catalogue.zip
 print "Downloading App from Github server"
