@@ -57,7 +57,7 @@ cd /home/roboshop/catalogue
 
 # Install the Pacakge
 print "Installing Package "
-nmp install --unsafe-perm &>> &LOG
+npm install --unsafe-perm &>> &LOG
 status_check $?
 
 # Make changes in systemd.service
