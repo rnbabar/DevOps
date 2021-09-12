@@ -4,9 +4,9 @@
 function status_check()
 {
     if [ $1 -eq 0 ]; then
-    echo -e "\n \t \e[35m SUCCESS \e[m0"
+    echo -e "\t \e[35m SUCCESS \e[m0"
     else
-    echo -e "\n \t \e[35m FAILURE \e[m0"
+    echo -e "\t \e[35m FAILURE \e[m0"
     exit 2
     fi
 } 
@@ -42,7 +42,8 @@ fi
 
 # Download the zip files of catalogue application from github repository to /tmp/catalogue.zip
 print "Downloading App from Github server"
-curl -o -s -L  /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>> $LOG
+curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>$LOG
+#curl -o -s -L  /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>> $LOG
 status_check $?
 # Unzip the Catalogue.zip 
 print "Extracting App Files"
