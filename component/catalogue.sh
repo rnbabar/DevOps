@@ -1,5 +1,5 @@
 #! bin/bash
-source DevOps/component/common.sh
+source component/common.sh
 
 # declare a temporary log file
 LOG=/tmp/roboshop.log
