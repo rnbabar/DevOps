@@ -10,15 +10,15 @@ print "Installing Nodejs"
 yum install nodejs make gcc-c++ -y &>>$LOG
 status_check $?
 
-
+add_app_user
 # Create a roboshop user
-id roboshop &>>$LOG
-if [ $? -eq 0 ]; then
-echo "User already exist " &>>$LOG
-else
-useradd roboshop &>>$LOG
-status_check $?
-fi 
+#id roboshop &>>$LOG
+#if [ $? -eq 0 ]; then
+#echo "User already exist " &>>$LOG
+#else
+#useradd roboshop &>>$LOG
+#status_check $?
+#fi 
 
 
 

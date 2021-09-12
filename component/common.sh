@@ -14,3 +14,13 @@ status_check() {
   fi 
 }
 
+add_app_user()
+{
+    id roboshop &>>$LOG
+    if [ $? -eq 0 ]; then
+    echo "User already exist " &>>$LOG
+    else
+    useradd roboshop &>>$LOG
+    fi
+    status_check $? 
+}
