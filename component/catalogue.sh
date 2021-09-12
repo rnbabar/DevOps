@@ -43,7 +43,7 @@ fi
 # Download the zip files of catalogue application from github repository to /tmp/catalogue.zip
 print "Downloading App from Github server"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>$LOG
-#curl -o -s -L  /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>> $LOG
+
 status_check $?
 # Unzip the Catalogue.zip 
 print "Extracting App Files"
@@ -57,7 +57,7 @@ cd /home/roboshop/catalogue
 
 # Install the Pacakge
 print "Installing Package "
-npm install --unsafe-perm &>> &LOG
+npm install --unsafe-perm &>>$LOG
 status_check $?
 
 # Make changes in systemd.service
