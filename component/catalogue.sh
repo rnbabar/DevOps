@@ -1,22 +1,5 @@
 #! bin/bash
-
-# function to check the status of the command 
-function status_check()
-{
-    if [ $1 -eq 0 ]; then
-    echo -e "\t \e[35m SUCCESS \e[m0"
-    else
-    echo -e "\t \e[35m FAILURE \e[m0"
-    exit 2
-    fi
-} 
-
-# function to check the status of the command 
-function print()
-{
-     echo -e -n "$1 \t-"
-    
-} 
+source component/common.sh
 
 # declare a temporary log file
 LOG=/tmp/roboshop.log
