@@ -24,20 +24,8 @@ add_app_user
 
 # Download the zip files of catalogue application from github repository to /tmp/catalogue.zip
 download_data
+systemD_setup
 
-cd /home/roboshop/catalogue
-
-# Install the Pacakge
-print "Installing Package "
-npm install --unsafe-perm &>>$LOG
-status_check $?
-
-# Make changes in systemd.service
-print "change and move service file"
-sed -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' /home/roboshop/catalogue/systemd.service &>>$LOG
-status_check $?
-# Move theb file
-mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 
 # restarting and enabling the service
 print "Enabling and starting the service" 

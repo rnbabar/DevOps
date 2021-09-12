@@ -39,3 +39,19 @@ download_data()
     # rename catalogue-main to caralogue directory
     mv catalogue-main catalogue
 }
+
+systemD_setup()
+{
+    cd /home/roboshop/catalogue
+    # Install the Pacakge
+    print "Installing Package "
+    npm install --unsafe-perm &>>$LOG
+    status_check $?
+    # Make changes in systemd.service
+    print "change and move service file"
+    sed -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' /home/roboshop/catalogue/systemd.service &>>$LOG
+    status_check $?
+    # Move theb file
+    mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
+
+}
