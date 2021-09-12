@@ -14,7 +14,7 @@ function status_check()
 # function to check the status of the command 
 function print()
 {
-    echo -e "\n \t \36m -------------------$1------------- \m0"
+    echo -e "\n \t \e[36m -------------------$1------------- \e[m0"
     echo -e -n "$1 \t-"
     
 } 
@@ -40,7 +40,7 @@ curl -o -s -L  /tmp/catalogue.zip "https://github.com/roboshop-devops-project/ca
 status_check $?
 # Unzip the Catalogue.zip 
 print "Extracting App Files"
-cd /home/catalogue && unzip -o /tmp/catalogue.zip &>>$LOG
+cd /home/roboshop && unzip -o /tmp/catalogue.zip &>>$LOG
 status_check $?
 # rename catalogue-main to caralogue directory
 mv catalogue-main catalogue
