@@ -1,4 +1,5 @@
 #! bin/bash
+
 print() {
   echo -e "\n\e[36m----------------- $1 ----------------------\e[0m\n" >>$LOG
   echo -n -e "$1 \t- "
@@ -12,6 +13,7 @@ status_check() {
     exit 2
   fi 
 }
+
 COMPONENT="frontend"
 #install nginx
 install_nginx
