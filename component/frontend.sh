@@ -22,6 +22,7 @@ status_check $?
 print "Restart Nginx\t\t"
 systemctl daemon-reload  &>>$LOG  
 status_check $?
-
-systemctl start nginx   &>>$LOG
+a=systemctl status nginx
+echo -e $a
+systemctl restart nginx   &>>$LOG
 status_check $?
