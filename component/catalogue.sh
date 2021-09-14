@@ -1,6 +1,7 @@
 #! bin/bash
 source common.sh
-
+${COMPONENT}=catalogue
+echo  ${COMPONENT}
 # declare a temporary log file
 LOG=/tmp/roboshop.log
 # Installation of nodejs and its compiler 
