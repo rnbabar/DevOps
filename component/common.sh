@@ -79,8 +79,8 @@ install_nodejs()
 
 install_nginx()
 {
-    Print "Install Nginx\t\t"
+    print "Install Nginx\t\t"
     yum install nginx -y &>>$LOG
-    Status_Check $?
+    status_Check $?
 }
 
