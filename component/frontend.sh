@@ -14,11 +14,11 @@ status_check $?
 # copy the localhost.conf to roboshop.conf
 print "Copy Nginx RoboShop Config"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf  &>>$LOG
-status_Check $?
+status_check $?
 # Setup the roboshop.cof
 sed -i -e '/catalogue/ s/localhost/catalogue.roboshop.internal/' -e '/user/ s/localhost/user.roboshop.internal/' -e '/cart/ s/localhost/cart.roboshop.internal/' -e '/shipping/ s/localhost/shipping.roboshop.internal/' -e '/payment/ s/localhost/payment.roboshop.internal/' /etc/nginx/default.d/roboshop.conf  &>>$LOG
 status_check $?
 # Restart the NGINX service
 print "Restart Nginx\t\t"
 systemctl restart nginx  &>>$LOG  && systemctl enable nginx   &>>$LOG
-status_Check $?
+status_check $?

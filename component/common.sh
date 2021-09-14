@@ -81,6 +81,6 @@ install_nginx()
 {
     print "Install Nginx\t\t"
     yum install nginx -y &>>$LOG
-    status_Check $?
+    status_check $?
 }
 
