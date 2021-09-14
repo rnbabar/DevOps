@@ -1,12 +1,12 @@
 #! bin/bash
 source common.sh
 COMPONENT="catalogue"
-echo -e  ${COMPONENT}
 # declare a temporary log file
 LOG=/tmp/roboshop.log
 # Installation of nodejs and its compiler 
 install_nodejs
 # Roboshop user  
+print "Checking Roboshop user"
 add_app_user
  # Download the zip files of catalogue application from github repository to /tmp/catalogue.zip
 download_data

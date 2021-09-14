@@ -1,18 +1,26 @@
 #! bin/bash
 
 print() {
-  echo -e "\n\t\t\e[36m----------------- $1 ----------------------\e[0m\n" >>$LOG
+  echo -e "\n\e[36m----------------- $1 ----------------------\e[0m\n" >>$LOG
   echo -n -e "$1 \t- "
 }
 
 status_check() {
   if [ $1 -eq 0 ]; then 
-    echo -e "\t\t\e[32mSUCCESS\e[0m"
+    echo -e "\t\e[32mSUCCESS\e[0m"
   else 
-    echo -e "\t\t\e[31mFAILURE\e[0m"
+    echo -e "\t\e[31mFAILURE\e[0m"
     exit 2
   fi 
 }
+
+if [ $UID -ne 0 ]; then 
+  echo -e "\n\e[1;33mYou should execute this script as root User\e[0m\n"
+  exit 1
+fi 
+
+LOG=/tmp/roboshop.log 
+
 
 add_app_user()
 {
@@ -70,3 +78,11 @@ install_nodejs()
     yum install nodejs make gcc-c++ -y &>>$LOG
     status_check $?
 }
+
+install_nginx()
+{
+    Print "Install Nginx\t\t"
+    yum install nginx -y &>>$LOG
+    Status_Check $?
+}
+
