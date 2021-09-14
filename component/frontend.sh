@@ -13,7 +13,7 @@ status_check() {
     exit 2
   fi 
 }
-
+LOG=/tmp/roboshop.log 
 COMPONENT="frontend"
 #install nginx
 install_nginx
