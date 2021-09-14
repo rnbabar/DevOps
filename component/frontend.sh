@@ -8,7 +8,7 @@ print "Downloading Package"
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip" &>> $LOG
 status_check $?
 # Copy the application to default in nginx
-Print "Extract Frontend Archive"
+print "Extract Frontend Archive"
 rm -rf /usr/share/nginx/* && cd /usr/share/nginx && unzip -o /tmp/frontend.zip  &>>$LOG  && mv frontend-main/* .  &>>$LOG  &&   mv static html  &>>$LOG
 status_check $?
 # copy the localhost.conf to roboshop.conf
@@ -20,5 +20,5 @@ sed -i -e '/catalogue/ s/localhost/catalogue.roboshop.internal/' -e '/user/ s/lo
 status_check $?
 # Restart the NGINX service
 print "Restart Nginx\t\t"
-systemctl restart nginx  &>>$LOG  && systemctl enable nginx   &>>$LOG
+systemctl daemon-reload nginx  &>>$LOG  && systemctl enable nginx   &>>$LOG
 status_check $?
