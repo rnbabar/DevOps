@@ -1,19 +1,6 @@
 #! bin/bash
+source common.sh
 
-print() {
-  echo -e "\n\e[36m----------------- $1 ----------------------\e[0m\n" >>$LOG
-  echo -n -e "$1 \t- "
-}
-
-status_check() {
-  if [ $1 -eq 0 ]; then 
-    echo -e "\t\e[32mSUCCESS\e[0m"
-  else 
-    echo -e "\t\e[31mFAILURE\e[0m"
-    exit 2
-  fi 
-}
-LOG=/tmp/roboshop.log 
 COMPONENT="frontend"
 #install nginx
 install_nginx
