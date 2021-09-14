@@ -1,6 +1,5 @@
 #! bin/bash
 source common.sh
-
 COMPONENT="frontend"
 #install nginx
 install_nginx
